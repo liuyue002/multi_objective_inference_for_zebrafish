@@ -21,6 +21,12 @@ For details, see the Liu & Volkening paper.
 ## Language
 Most of the code is in MATLAB, with a few components in Python.
 
+These Python packages need to be installed (the versions used by the authors are in parenthesis):
+
+* numpy (2.2.4)
+* persim (0.3.8) 
+* ripser (0.6.12)
+
 ## Key files
 
 TODO: list the important files
@@ -28,6 +34,20 @@ TODO: list the important files
 ## Utility files
 
 TODO: list things like plotting functions, etc
+
+## Example
+
+To compute TDA persistence homology, persistence landscape and persistence image for the ground truth wild-type fish: in MATLAB, run 
+```
+sim_params = zebrafish_default_params;
+randomseed = 10001;
+T = 45;
+tda_params = tda_default_params;
+ts=1:T;
+savefolder = '/path/of/repo/zebrafish_inference_public/example_results/ground_truth/';
+simname = 'groundtruth_wt';
+params_to_tda(sim_params,randomseed,T,tda_params,ts,savefolder,simname,0,1);
+```
 
 ## Troubleshooting regarding MATLAB-Python interface
 

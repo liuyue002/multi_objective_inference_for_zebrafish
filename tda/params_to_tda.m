@@ -43,16 +43,16 @@ output_file = strcat(savefolder,simname,'.mat');
 
 % simulation
 tic;
-zebrafishMain_general(params,T,savefolder,simname,randomseed);
+zebrafish_model(params,T,savefolder,simname,randomseed);
 fprintf('%s, Simualation took %.2f sec\n',simname,toc);
 
 if saveextra>0
     for t=ts
-        plot_zebrafish_pattern_general(savefolder,simname,t,4);
+        plot_zebrafish_pattern(savefolder,simname,t,4);
     end
 else
     % always plot final pattern
-    plot_zebrafish_pattern_general(savefolder,simname,T,4);
+    plot_zebrafish_pattern(savefolder,simname,T,4);
 end
 
 % TDA
