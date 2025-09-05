@@ -33,6 +33,10 @@ TODO: list things like plotting functions, etc
 
 TODO: talk about how to call python script from MATLAB
 
+* Potential problem: MATLAB and Python's version are not compatible
+* Potential problem: MATLAB and Python was compiled for different CPU architecture
+* Potential problem: Python can't find installed packages
+
 ## Contact
 
 If you run into problems when trying these code, contact Yue Liu at liu4194 at purdue dot edu.
