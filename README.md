@@ -56,6 +56,11 @@ TODO: talk about how to call python script from MATLAB
 * Potential problem: MATLAB and Python's version are not compatible
 * Potential problem: MATLAB and Python was compiled for different CPU architecture
 * Potential problem: Python can't find installed packages
+* Potential problem: Something about libstdc++.so.6 missing
+Solution: try to locate your libstdc++.so.6 (which is a file from GNU C++ library used by numpy, among other things), then do
+```
+export LD_PRELOAD=/path/to/libstdc++.so.6
+```
 
 ## Contact
 
