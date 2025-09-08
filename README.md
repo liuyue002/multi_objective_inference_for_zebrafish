@@ -51,10 +51,16 @@ params_to_tda(sim_params,randomseed,T,tda_params,ts,savefolder,simname,0,1);
 
 ## Troubleshooting regarding MATLAB-Python interface
 
-TODO: talk about how to call python script from MATLAB
+Some scripts involves calling Python functions from within MATLAB. There are a few possible problems that can arise from this, and some possible solutions. This functionality is very finicky to use, so the actual solution might depend on the exact set up of your computer.
 
 * Potential problem: MATLAB and Python's version are not compatible
+
+See https://www.mathworks.com/support/requirements/python-compatibility.html . Make sure to have a Python version compatible with your MATLAB version installed.
+
 * Potential problem: MATLAB and Python was compiled for different CPU architecture
+
+If you are running the code on an Apple computer, it is possible that the version of MATLAB you are using is the "maci64" version. This version is compiled for Intel architecture (i.e. x86_64), while the Python interpreter is compiled for Apple's new architecture (M1, M2, etc, which is arm64). You can find which architecture your computer has with ```uname -a``` in bash. This can result in cryptic error messages. Solution is to install the "maca64" version of MATLAB, which was compiled for Apple natively. See https://www.mathworks.com/matlabcentral/answers/1977529-how-to-use-python-from-matlab-on-mac-with-apple-silicon
+
 * Potential problem: Python can't find installed packages
 
 When MATLAB calls Python, sometimes sys.path is not initiated correctly. Make sure the packages are actually installed, use ```pip show $PACKAGE_NAME``` to find out where it is, then manually add the path to Python's search path:
@@ -65,14 +71,18 @@ sys.path.append('/path/to/package/')
 
 * Potential problem: Something about "GLIBCXX_3.4.29" or something similar
 
-This is caused by MATLAB and the version of Python it calls are not using the same version of libstdc++ (the standard C++ library). Try to specity which version of Python you are calling from MATLAB by modifying the "pyenv" command, e.g. 
+This is caused by MATLAB and the version of Python it calls are not using the same version of libstdc++ (GNU C++ library). Try to specity which version of Python you are calling from MATLAB by modifying the "pyenv" command, e.g. 
 ```
 pyenv(Version="/path/to/python")
 ```
 
 * Potential problem: Something about libstdc++.so.6
 
-Try to locate your libstdc++.so.6 (which is a file from GNU C++ library used by numpy, among other things), then do
+This is again about libstdc++. The error message is about MATLAB came with a version of libstdc++ not compatible with Python's version. Try something along the lines of
+```
+conda install -c conda-forge libstdcxx-ng=12
+```
+or the pip equivalent if you are not using Conda. Then locate the copy of libstdc++.so.6 you just installed, then do
 ```
 export LD_PRELOAD=/path/to/libstdc++.so.6
 ```
