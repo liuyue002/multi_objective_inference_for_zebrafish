@@ -1,4 +1,4 @@
-function [output_file,psurfs,plands] = params_to_tda(sim_params,randomseed,T,tda_params,ts,savefolder,simname,saveextra,do_pimg)
+function [output_file,psurfs,plands] = params_to_tda(sim_params,randomseed,T,tda_params,ts,savefolder,simname,saveextra)
 %Simulate the Volkening zebrafish model, and run TDA analysis pipeline on the resulting pattern,
 %which involves computing persistence homology using the Vietoris-Rips filtration,
 %then compute persistence landscape, and optionaly persistence image.
@@ -15,8 +15,6 @@ function [output_file,psurfs,plands] = params_to_tda(sim_params,randomseed,T,tda
 % simname: name of simulation, used as prefix of all saved files
 % saveextra: whether to save extra figures and intermediate files
 %  (0: don't save, 1: save everything, 2: extra pattern pics only)
-% do_pimg: whether to compute persistence images
-
 addpath('../zebrafish_abm');
 fprintf('params_to_tda %s, begin: %s\n',simname,string(datetime('now'),'yyyy/MM/dd HH:mm:ss'));
 
@@ -115,19 +113,6 @@ for i=1:num_ts
                 saveas(fig_pland,sprintf('%s%s_pland_%s_t=%02d_dim%d.png',savefolder,simname,celltype,t,dim));
                 saveas(fig_barcode,sprintf('%s%s_barcode_%s_t=%02d_dim%d.png',savefolder,simname,celltype,t,dim));
             end
-
-            % persistence image
-            if do_pimg
-                tic;
-                [fig_pimg,~,~,psurfs.(fieldname)] = compute_pimg(barcodes.(fieldname), tda_params, 0, 0);
-                fprintf('%s, %s cells, t=%02d, Persistence image took %.2f sec\n',simname,celltype,t,toc);
-                if saveextra==1
-                    saveas(fig_pimg,sprintf('%s%s_pimg_%s_t=%02d_dim%d.png',savefolder,simname,celltype,t,dim));
-                    tda_params2 = struct('pimg_bmax',tda_params.pimg_bmax,'pimg_pmax',tda_params.pimg_pmax,'pimg_numpts',tda_params.pimg_numpts);
-                    [fig_pdiag,~,~,~]=compute_pimg(barcodes.(fieldname), tda_params2, 0, 0);
-                    saveas(fig_pdiag,sprintf('%s%s_pdiag_%s_t=%02d_dim%d.png',savefolder,simname,celltype,t,dim));
-                end
-            end
         end
     end
 end
@@ -135,10 +120,7 @@ clear('pw_distances'); % it takes too much memory
 tic;
 plands_file=sprintf('%s/%s_plands.mat',savefolder,simname);
 save(plands_file,"-struct","plands");
-if do_pimg
-    pimg_file=sprintf('%s/%s_pimg.mat',savefolder,simname);
-    save(pimg_file,"-struct","psurfs");
-end
+
 barcode_file=sprintf('%s/%s_barcodes.mat',savefolder,simname);
 save(barcode_file,"-struct","barcodes");
 save(output_file,'-regexp', '^(?!(plands|psurfs|barcodes)$).','-append');% don't save plands and psurfs in the main file
