@@ -1,7 +1,7 @@
 # Parameter inference for Zebrafish ABM
 Code for conducting parameter inference for an agent-based model of zebrafish patterns, associated with the paper:
 
-* Liu & Volkening (2025). *Multi-objective Bayesian inference in an agent-based model of zebrafish patterns via topological data analysis*. In preparation.
+* Liu & Volkening (2025). *Multi-objective Bayesian inference in an agent-based model of zebrafish patterns via topological data analysis*. arXiv 2605.18685. [doi:10.48550/arXiv.2605.18685](https://doi.org/10.48550/arXiv.2605.18685)
 
 The code in this repository uses the Zebrafish model from the following paper. The code for simulating the model is available separately upon request.
 
@@ -27,13 +27,20 @@ These Python packages need to be installed (the versions used by the authors are
 * persim (0.3.8) 
 * ripser (0.6.12)
 
-## Key files
+## Key files (look at these first)
 
-TODO: list the important files
+* tda/params_to_tda.m: Master function for running the TDA pipeline from model parameters, to persistent homology computation, then compute persistence landscape/persistence images
+* inference/melanophore_params_inference: demonstrates how to run the inference pipeline to infer melanophore birth parameters, reproduces Section 3.1 of the paper. This script is meant to illustrate and clarify the pipeline; it can't actually run without the zebrafish model, the code for which is available separately
+* example_results/ground_truth/groundtruth_wt.mat: simulation result of the wildtype fish with ground truth parameters. This file is provided so you can try out the TDA pipeline without having to simulate the model yourself
 
 ## Utility files
 
-TODO: list things like plotting functions, etc
+* tda/compute_pimg.m: Compute persistence images from persistent homology barcodes
+* tda/computePersistentHomology.py: Compute persistent homology with the Vietoris-Rips filtration. This script is meant to be called from within Matlab and can't be run directly from python
+* tda/formatModelData.m: Compute pairwise distance between cells, and format simulation data to be ready for TDA computation
+* tda/plot_barcode.m, plot_pland.m: plotting functions for persistent homology barcodes and persistence landscapes, respectively
+* tda/tda_default_params.m: default hyper-parameter values for TDA computation
+
 
 ## Example
 
