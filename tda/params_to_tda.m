@@ -1,3 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Given a set of model parameters for the zebrafish model,
+%compute persistence landscapes for all possible objectives.
+%
+%
+%Copyright (C) Yue Liu, Alexandria Volkening, 2026
+%
+%This program is free software: you can redistribute it and/or 
+%modify it under the terms of the GNU General Public License as 
+%published by the Free Software Foundation, version 3.
+%
+%This program is distributed in the hope that it will be useful, 
+%but WITHOUT ANY WARRANTY; without even the implied warranty of 
+%MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+%See the GNU General Public License for more details.
+%
+%You should have received a copy of the GNU General Public 
+%License along with this program. If not, see 
+%https://www.gnu.org/licenses/.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function [output_file,psurfs,plands] = params_to_tda(sim_params,randomseed,T,tda_params,ts,savefolder,simname,saveextra)
 %Simulate the Volkening zebrafish model, and run TDA analysis pipeline on the resulting pattern,
 %which involves computing persistence homology using the Vietoris-Rips filtration,

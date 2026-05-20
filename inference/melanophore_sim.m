@@ -1,3 +1,23 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Wrapper function for running simulation and TDA computation.
+%
+%
+%Copyright (C) Yue Liu, Alexandria Volkening, 2026
+%
+%This program is free software: you can redistribute it and/or 
+%modify it under the terms of the GNU General Public License as 
+%published by the Free Software Foundation, version 3.
+%
+%This program is distributed in the hope that it will be useful, 
+%but WITHOUT ANY WARRANTY; without even the implied warranty of 
+%MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+%See the GNU General Public License for more details.
+%
+%You should have received a copy of the GNU General Public 
+%License along with this program. If not, see 
+%https://www.gnu.org/licenses/.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function melanophore_sim(alpha,beta,mutant,randomseed,savefolder)
 
 sim_params = zebrafish_default_params();

@@ -3,7 +3,7 @@ Code for conducting parameter inference for an agent-based model of zebrafish pa
 
 * Liu & Volkening (2026). *Multi-objective Bayesian inference in an agent-based model of zebrafish patterns via topological data analysis*. arXiv 2605.18685. [doi:10.48550/arXiv.2605.18685](https://doi.org/10.48550/arXiv.2605.18685)
 
-The code in this repository uses the zebrafish model from the following paper. The code for simulating the model is available separately upon request.
+The code in this repository uses the zebrafish model from the following paper. The code for simulating the model is available separately upon request to Volkening & Sandstede.
 
 * Volkening & Sandstede (2018). *Iridophores as a source of robustness in zebrafish stripes and variability in Danio patterns*. Nature Communications 9(1):3231
 
@@ -11,7 +11,6 @@ The TDA (topological data analysis) code are partly adapted from:
 
 * Cleveland, Zhu, Sandstede, & Volkening (2023). *Quantifying Different Modeling Frameworks Using Topological Data Analysis: A Case Study with Zebrafish Patterns*. SIAM Journal on Applied Dynamical Systems 22(4):3233-3266
 
-Prior to publication, this repository contains mainly scripts for the analysis of melanophore differentiation parameters. At acceptance more will be added.
 
 ## What does this do?
 Agent-based models for biological systems contain many parameters, whose values are unknown *a priori*, and need to be determined by caliberating the model to data. For ODE or PDE-based models, techniques for model caliberation are well studied. But for agent-based models (ABMs), model caliberation is much trickier, due to stochasticity, intractable likelihood functions, and the cost of simulating these models. For phenomenon such as zebrafish skin patterning, an additional challenge is quantifying complex cell based patterns.
@@ -19,6 +18,8 @@ Agent-based models for biological systems contain many parameters, whose values 
 Our approach use TDA to extract features from zebrafish patterns, and persistence landscapes to establish a metric for quantifying similarity between patterns. We combine this TDA-based metric with AABC (approximate-approximate Bayesian computation) to construct approximate posterior distributions for the model parameters. These posteriors provides an estimate for the parameters, and also their identiifiability.
 
 For details, see the Liu & Volkening paper.
+
+Prior to publication, this repository contains mainly scripts for the analysis of melanophore differentiation parameters. At acceptance more will be added.
 
 ## Language
 Most of our code is in MATLAB, with a few components in Python.

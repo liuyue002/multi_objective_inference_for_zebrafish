@@ -1,5 +1,26 @@
 '''
-    This file is adapted from the code by Cleveland et al.
+Compute persistent homology and construct persistence landscape
+given pairwise distance from a point-cloud dataset.
+
+Copyright (C) Yue Liu, Alexandria Volkening, 2026
+Adapted from Cleveland, Zhu, Sandstede, & Volkening (2023)
+
+This program is free software: you can redistribute it and/or 
+modify it under the terms of the GNU General Public License as 
+published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public 
+License along with this program. If not, see 
+https://www.gnu.org/licenses/.
+'''
+
+
+'''
     This script is meant to be called from within MATLAB, 
     specifically by params_to_tda.m,
     and won't run by itself in Python.
