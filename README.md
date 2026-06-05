@@ -33,8 +33,13 @@ These Python packages need to be installed (the versions used by the authors are
 ## Key files (look at these first)
 
 * tda/params_to_tda.m: Master function for running our TDA pipeline from model parameters, including persistent homology computation, and construction of persistence landscapes
-* inference/melanophore_params_inference: Script that demonstrates how to run the inference pipeline for melanophore differentiation parameters, reproduces Section 3.1 of the paper. This script is meant to illustrate and clarify the pipeline; in order to run it, the ABM code can be requested from (Volkening & Sandstede 2018) 
+* inference/melanophore_study/melanophore_params_inference.m: Script that demonstrates how to run the inference pipeline for melanophore differentiation parameters, reproduces Section 3.1 of the paper. This script is meant to illustrate and clarify the pipeline; in order to run it, the ABM code can be requested from (Volkening & Sandstede 2018) 
+* inference/melanophore_study/melanophore_results.m: Loads the computed TDA scores for parameter samples in the melanophore differentiation study, perform AABC, and visualize the result by recreating Fig.6 and 7 in the paper.
 * example_results/ground_truth/groundtruth_wt.mat: Simulation results of the wild-type fish with ground truth parameters. This file is provided so readers can try out the TDA pipeline without having to simulate the model themselves
+
+## Other files
+* inference/movement_study and inference/iridophore_study: Scripts for the movement parameters study and the iridophore differentiation study. The structure is similar to the melanophore study.
+* example_results/inference_results: MATLAB-format file containing data that can be used to recreate figures in the paper
 
 ## Utility files
 
