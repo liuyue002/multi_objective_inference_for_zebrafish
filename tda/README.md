@@ -1,1 +1,1 @@
-The code in this folder concerns with TDA computation, including persistent homology, persistence landscape, and some plotting utilities.
+The code in this folder treats TDA computation, including computing persistent homology, constructing persistence landscapes, and plotting results.
