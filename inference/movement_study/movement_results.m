@@ -19,7 +19,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% load data
-load('D:\zebrafish_storage\maclaptop\movement_20241111/post-analysis/aabc_29crit.mat','RIDIDS','RILILS','Ridids','Rilils','Ridid_true','Rilil_true','criteria','min_dists','num_criteria','num_nearest','num_presample','num_sample','num_trial','param_sample','presample_params','scaling','tda_dists');
+load('./../example_results/inference_results/movement_results.mat','RIDIDS','RILILS','Ridids','Rilils','Ridid_true','Rilil_true','criteria','min_dists','num_criteria','num_nearest','num_presample','num_sample','num_trial','param_sample','presample_params','scaling','tda_dists');
 weights = 1./min_dists';
 %% Single objective (recreates Fig.8 a-d)
 
