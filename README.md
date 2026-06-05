@@ -3,7 +3,7 @@ Code for conducting parameter inference for an agent-based model of zebrafish pa
 
 * Liu & Volkening (2026). *Multi-objective Bayesian inference in an agent-based model of zebrafish patterns via topological data analysis*. arXiv 2605.18685. [doi:10.48550/arXiv.2605.18685](https://doi.org/10.48550/arXiv.2605.18685)
 
-The code in this repository uses the zebrafish model from the following paper. The code for simulating the model is available separately upon request to Volkening & Sandstede.
+The code in this repository depends on a prior agent-based model of zebrafish pattern formation. The code for simulating the model is available from Volkening & Sandstede, see the following paper:
 
 * Volkening & Sandstede (2018). *Iridophores as a source of robustness in zebrafish stripes and variability in Danio patterns*. Nature Communications 9(1):3231
 
